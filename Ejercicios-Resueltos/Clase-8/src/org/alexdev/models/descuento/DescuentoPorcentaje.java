@@ -10,12 +10,7 @@ public class DescuentoPorcentaje extends Descuento {
     }
 
     public DescuentoPorcentaje(Double porcentaje) {
-
-        if (porcentaje > 0 && porcentaje < 100) {
-            this.porcentaje = porcentaje;
-        } else {
-            this.porcentaje = 0.0;
-        }
+        this.porcentaje = porcentaje;
     }
 
     @Override

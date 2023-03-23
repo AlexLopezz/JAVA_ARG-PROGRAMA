@@ -1,6 +1,7 @@
 package org.alexdev.models;
 
 
+import org.alexdev.exceptions.DescuentoCero;
 import org.alexdev.exceptions.SinPrecioDescuento;
 import org.alexdev.models.abstractClass.Descuento;
 import org.alexdev.models.descuento.DescuentoFijo;
@@ -49,9 +50,13 @@ public class CarritoCompra {
         return montoItems();
     }
 
-    public double getPrecioFinal(Descuento desc) throws SinPrecioDescuento {
-        if (this.getPrecioFinal() != 0) {
-            return this.getPrecioFinal() - montoDesc(desc);
+    public double getPrecioFinal(Descuento desc) throws SinPrecioDescuento, DescuentoCero {
+        if (this.getPrecioFinal() > 0) {
+            if( this.getPrecioFinal() - montoDesc(desc) > 0) {
+                return this.getPrecioFinal() - montoDesc(desc);
+            }else{
+                throw new DescuentoCero("El resultado del descuento no debe ser un monto negativo.");
+            }
         } else {
             throw new SinPrecioDescuento("No se puede obtener un descuento debido a que el precio final es 0.");
         }
