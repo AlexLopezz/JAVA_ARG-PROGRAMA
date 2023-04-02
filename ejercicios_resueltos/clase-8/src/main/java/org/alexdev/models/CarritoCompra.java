@@ -52,8 +52,8 @@ public class CarritoCompra {
 
     public double getPrecioFinal(Descuento desc) throws SinPrecioDescuento, DescuentoCero {
         if (this.getPrecioFinal() > 0) {
-            if( this.getPrecioFinal() - montoDesc(desc) > 0) {
-                return this.getPrecioFinal() - montoDesc(desc);
+            if( (this.getPrecioFinal() - montoDesc(desc, (int)this.getPrecioFinal())) > 0) {
+                return this.getPrecioFinal() - montoDesc(desc, (int)this.getPrecioFinal());
             }else{
                 throw new DescuentoCero("El resultado del descuento no debe ser un monto negativo.");
             }
@@ -70,11 +70,11 @@ public class CarritoCompra {
         return monto;
     }
 
-    public double montoDesc(Descuento desc) {
+    public double montoDesc(Descuento desc, int precio) {
         if (desc instanceof DescuentoFijo descFijo) {
-            return descFijo.descuento((int) this.getPrecioFinal());
+            return descFijo.descuento(precio);
         } else if (desc instanceof DescuentoPorcentaje descuentoPorcentaje) {
-            return descuentoPorcentaje.descuento((int) this.getPrecioFinal());
+            return descuentoPorcentaje.descuento(precio);
         }
         return 0;
     }

@@ -12,10 +12,7 @@ public class DescuentoFijo extends Descuento {
 
     @Override
     public int descuento(int base) {
-        if (monto < base && monto > 0) {
-            return monto;
-        }
-        return 0;
+        return monto;
     }
 
     public int getMonto() {
