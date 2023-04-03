@@ -52,6 +52,7 @@ public class Main {
             );
             auxInt+=2;
         }
+        System.out.println(inscripciones);
 
     }
     static String[] leerArchivo(String path) throws IOException {
@@ -59,29 +60,10 @@ public class Main {
                 .replace("[", "")
                 .replace("]", "")
                 .replace(", ", "\n")
-                .replace(";","\n")
+                .replace(";", "\n")
                 .split("\n");
-
-    }
-    static void imprimirResultadoInscripcion(List<Inscripcion> inscripciones, List<Materia> materias, List<Alumno> alumnos){
-        for(Inscripcion i : inscripciones){
-            System.out.print(i.getAlumno()+"\t"+i.getMateria()+"\t");
-            if(estaAlumno(alumnos, i.getAlumno())){
-                if(materias.){
-                    System.out.println("Desaprobado");
-                }else{
-                    System.out.println("Aprobado");
-                }
-
-            }else{
-                System.out.println("No existe el/la alumno/a");
-            }
-        }
-
     }
 
-    static boolean estaAlumno(List<Alumno> alumnos,Alumno a) {
-        return alumnos.stream().anyMatch(alumno -> alumno.equals(a));
-    }
+
 
 }

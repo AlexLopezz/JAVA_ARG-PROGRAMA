@@ -52,6 +52,10 @@ public class Alumno {
         this.materiasAprobadas.add(materia);
     }
 
+    public boolean tenesCorrelativa(Materia m){
+        return this.materiasAprobadas.contains(m);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Alumno a){
@@ -59,5 +63,13 @@ public class Alumno {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno{" +
+                "legajo='" + legajo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }

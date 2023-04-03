@@ -39,8 +39,16 @@ public class Materia {
     public void addMateriaCorrelativa(Materia materia){
         this.materiasCorrelativas.add(materia);
     }
-    public boolean esCorrelativa(Materia materia){
-        return this.materiasCorrelativas.stream().anyMatch(ma -> ma.equals(materia));
+    public boolean tieneCorrelativas(){
+        return !this.materiasCorrelativas.isEmpty();
+    }
+    public boolean puedeCursar(Alumno a){
+        /**
+         * El alumno puede cursar la materia si contiene todas las correlativas necesarias(Materia aprobada).
+         */
+        return this.materiasCorrelativas
+                .stream()
+                .allMatch(materiaCorrelativa -> a.tenesCorrelativa(materiaCorrelativa));
     }
 
     @Override
@@ -50,5 +58,13 @@ public class Materia {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Materia{" +
+                "nombre='" + nombre + '\'' +
+                ", materiasCorrelativas=" + materiasCorrelativas +
+                '}';
     }
 }
