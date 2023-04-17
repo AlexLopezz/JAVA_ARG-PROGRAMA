@@ -62,9 +62,6 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" +
-                "nombre='" + nombre + '\'' +
-                ", materiasCorrelativas=" + materiasCorrelativas +
-                '}';
+        return this.nombre;
     }
 }

@@ -1,5 +1,7 @@
 package org.alexdev.models;
 
+import org.alexdev.EnumInscripcion;
+
 import java.time.LocalDate;
 
 public class Inscripcion {
@@ -47,10 +49,6 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        return "Inscripcion{" +
-                "alumno=" + alumno +
-                ", materia=" + materia +
-                ", fecha=" + fecha +
-                '}';
+        return this.alumno + "\t" + this.materia + "\t" + (this.aprobada() ? EnumInscripcion.Aprobado : EnumInscripcion.Rechazado) + "\n";
     }
 }

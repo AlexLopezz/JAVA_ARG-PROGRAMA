@@ -67,9 +67,6 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno{" +
-                "legajo='" + legajo + '\'' +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return this.nombre;
     }
 }
