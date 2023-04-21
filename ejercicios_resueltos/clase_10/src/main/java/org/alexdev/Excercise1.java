@@ -11,7 +11,7 @@ import java.util.*;
 public class Excercise1 {
     public static void main(String[] args) throws IOException {
         ReadFilesItems rf = new ReadFilesItems();
-        String rutaCSV = System.getProperty("user.dir")+"\\src\\main\\resources\\inscripciones.csv";
+        String rutaCSV = System.getProperty("user.dir")+"\\clase_10\\src\\main\\resources\\inscripciones.csv";
         rf.setRuta(rutaCSV);
         String[] dataCSV = rf.getItemsFile();
 
