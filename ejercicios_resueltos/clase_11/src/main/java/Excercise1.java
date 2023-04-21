@@ -21,7 +21,8 @@ public class Excercise1 {
         //Realizamos un try por si el usuario quiere ingresar contenido que no sea numero entero.
         try {
             decision = lector.nextInt();
-            lector.nextLine();
+            //Siempre que utilicemos un nextInt(), y luego queremos leer de vuelta, debemos escapar el \n que realiza por defecto este metodo.
+            lector.nextLine(); //Con esto, dejamos 'limpio' el buffer del Scanner, por lo que NO nos 'salteara' hacia la proxima linea cuando querramos leer algo.
             //Dependiendo de la decision del usuario ejecutara el codigo correspondiente:
             switch (decision) {
                 case 1 -> {
